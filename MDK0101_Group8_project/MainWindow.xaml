@@ -1,12 +1,20 @@
 ﻿<Window x:Class="MDK0101_Group8_project.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MDK0101_Group8_project"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Main Window" Height="600" Width="800">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
+            <Button Margin="5" Click="SummaryButton_Click">Сводная ведомость</Button>
+            <Button Margin="5" Click="ScheduleButton_Click">Расписание</Button>
+            <Button Margin="5" Click="RatingButton_Click">Рейтинг</Button>
+        </StackPanel>
+        <Frame Grid.Row="1" Grid.Column="0" x:Name="mainFrame"/>
     </Grid>
 </Window>
