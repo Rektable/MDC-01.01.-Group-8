@@ -1,0 +1,23 @@
+# Папки сборки
+MDK0101_Group8_project/bin/Debug/
+MDK0101_Group8_project/obj/Debug/
+
+# Файлы, специфичные для пользователя
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Файлы Visual Studio
+.vs/
+.vscode/
+
+# Пакеты NuGet
+packages/
+
+# Логи
+*.log
+
+# Другие
+*.pidb
+*.DS_Store
