@@ -12,6 +12,19 @@ namespace Oknoreg
 
     public class MainViewModel : INotifyPropertyChanged
     {
+        private string userName;
+        public string UserName
+        {
+            get { return userName; }
+            set
+            {
+                if (userName != value)
+                {
+                    userName = value;
+                    OnPropertyChanged(nameof(UserName));
+                }
+            }
+        }
         public ICommand SaveToExcelCommand { get; private set; }
         public ObservableCollection<Student> Students { get; set; }
         public ObservableCollection<StudentRanking> StudentsRankings { get; set; }

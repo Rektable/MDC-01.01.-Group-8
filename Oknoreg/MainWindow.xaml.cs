@@ -37,75 +37,52 @@ namespace Oknoreg
                 MessageBox.Show("Вы забыли ввести логин!");
                 return;
             }
-            if (okno2.Password == "")
+            else if (okno2.Password == "")
             {
                 MessageBox.Show("Вы забыли ввести пароль!");
                 return;
             }
-            //Получить данные логина и пароля
-            //Первый преподаватель
-            if (okno1.Text == "pq19Yu")
-            {
-                if (okno2.Password == "1234")
+            else {
+                List<string> logins = new List<string> { "pq19Yu", "gt56Po", "bv32Lh", "ds78Xw", "az40Cm", "ef94Kr" };
+                Dictionary<string, string> passwords = new Dictionary<string, string> 
+                { 
+                    { "pq19Yu", "1234" }, 
+                    { "gt56Po", "2341" },
+                    { "bv32Lh", "1342" },
+                    { "ds78Xw", "5678" },
+                    { "az40Cm", "8765" },
+                    { "ef94Kr", "5876" }
+                };
+
+                Dictionary<string, string> names = new Dictionary<string, string>
                 {
-                    Window window = new Window1();
-                    window.Show();
+                    { "pq19Yu", "Смирнова Е.В." },
+                    { "gt56Po", "Петров Е.С." },
+                    { "bv32Lh", "Полякова А.Н." },
+                    { "ds78Xw", "Романовская Н.В." },
+                    { "az40Cm", "Шагина Е.В." },
+                    { "ef94Kr", "Женихова Н.В." }
+                };
+                
+                if (logins.Contains(okno1.Text))
+                {
+                    if (passwords[okno1.Text] == okno2.Password)
+                    {
+                        string userName = names[okno1.Text];
+                        MessageBox.Show("Вы успешно вошли в систему");
+                        Window window = new ResultTableWindow(userName);
+                        window.Show();
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Неверный пароль");
+                    }
                 }
-            }
-            
-            //Второй преподаватель
-            if (okno1.Text == "gt56Po")
-            {
-                if (okno2.Password == "2341")
+                else
                 {
-                    MessageBox.Show("Вы успешно вошли в систему");
-                    Window window = new Window2();
-                    window.Show();
-                }  
-            }
-           
-            //Третий преподаватель
-            if (okno1.Text == "bv32Lh")
-            {
-                if (okno2.Password == "1342")
-                {
-                    MessageBox.Show("Вы успешно вошли в систему");
-                    Window window = new Window3();
-                    window.Show();
-                } 
-            }
-            
-            //Четвертый преподаватель
-            if (okno1.Text == "ds78Xw")
-            {
-                if (okno2.Password == "5678")
-                {
-                    MessageBox.Show("Вы успешно вошли в систему");
-                    Window window = new Window4();
-                    window.Show();
-                }  
-            }
-            
-            //Пятый преподаватель
-            if (okno1.Text == "az40Cm")
-            {
-                if (okno2.Password == "8765")
-                {
-                    MessageBox.Show("Вы успешно вошли в систему");
-                    Window window = new Window5();
-                    window.Show();
-                } 
-            }
-           
-            //Шестой преподаватель
-            if (okno1.Text == "ef94Kr")
-            {
-                if (okno2.Password == "5876")
-                {
-                    MessageBox.Show("Вы успешно вошли в систему");
-                    Window window = new Window6();
-                    window.Show();
-                } 
+                    MessageBox.Show("Неверный логин");
+                }
             }
         }
     }

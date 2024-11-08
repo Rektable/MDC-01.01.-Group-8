@@ -1,0 +1,45 @@
+﻿<Window x:Class="Oknoreg.ResultTableWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="{Binding UserName, StringFormat=Вы вошли как: {0}}" Height="450" Width="800">
+    <TabControl>
+        <TabItem Header="Студенты">
+            <StackPanel>
+                <DataGrid ItemsSource="{Binding Students}" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ФИО" Binding="{Binding FullName}" />
+                        <DataGridTextColumn Header="Возраст" Binding="{Binding Age}" />
+                        <DataGridTextColumn Header="Группа" Binding="{Binding Group}" />
+                        <DataGridTextColumn Header="Направление" Binding="{Binding Direction}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+        </TabItem>
+        <TabItem Header="Рейтинг">
+            <StackPanel>
+                <DataGrid ItemsSource="{Binding StudentsRankings}" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ФИО" Binding="{Binding FullName}" />
+                        <DataGridTextColumn Header="Группа" Binding="{Binding Group}" />
+                        <DataGridTextColumn Header="Направление" Binding="{Binding Direction}" />
+                        <DataGridTextColumn Header="Средний балл" Binding="{Binding AverageGrade}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+        </TabItem>
+        <TabItem Header="Сводная ведомость">
+            <StackPanel>
+                <DataGrid ItemsSource="{Binding SummaryReport}" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ФИО" Binding="{Binding FullName}" />
+                        <DataGridTextColumn Header="Группа" Binding="{Binding Group}" />
+                        <DataGridTextColumn Header="Направление" Binding="{Binding Direction}" />
+                        <DataGridTextColumn Header="Средний балл" Binding="{Binding AverageGrade}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Button Content="Сохранить в Excel" Command="{Binding SaveToExcelCommand}" />
+            </StackPanel>
+        </TabItem>
+        
+    </TabControl>
+</Window>
