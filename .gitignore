@@ -3,21 +3,17 @@ MDK0101_Group8_project/bin/Debug/
 MDK0101_Group8_project/obj/Debug/
 
 # Файлы, специфичные для пользователя
+bin/
+obj/
+*.dll
+*.exe
+*.pdb
+*.cache
+*.log
 *.user
 *.suo
 *.userosscache
 *.sln.docstates
-
-# Файлы Visual Studio
-.vs/
-.vscode/
-
-# Пакеты NuGet
+*.vs/
+_ReSharper.*
 packages/
-
-# Логи
-*.log
-
-# Другие
-*.pidb
-*.DS_Store
